@@ -2,6 +2,8 @@
 
 **basic string manipulation commands**
 
+**Command syntax:** [-n/-b/-s] <file-path(s)>  (Order of inputs is irrespective)
+
 **-n command** enumerates all the strings of the mentioned file
 
 **-b command** enumerates all the strings, which are not empty, of the mentioned file
