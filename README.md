@@ -3,6 +3,7 @@
 **basic string manipulation commands**
 
 **Command syntax:** [-n/-b/-s] <file-path(s)>  (Order of inputs is irrespective)
+Example: "-s -b f1.txt f2.txt"
 
 **-n command** enumerates all the strings of the mentioned file
 
