@@ -1,4 +1,4 @@
-function sFunctionality (file) {
+module.exports = function sFunctionality (file) {
   let arr = file.split(/\r?\n/)
   let i = arr.length
   while (i--) {

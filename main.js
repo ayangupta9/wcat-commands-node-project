@@ -1,22 +1,48 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
-const os = require('os')
+const path = require('path')
+const bCommand = require('./utilityFuncs/b-command')
+const nCommand = require('./utilityFuncs/n-command')
+const sCommand = require('./utilityFuncs/s-command')
 let inputArr = process.argv.slice(2)
-const commandKeywords = ['-s', '-b', '-n', '-s']
 
-Array.prototype.insert = function (index, item) {
-  this.splice(index, 0, item)
+if (inputArr.length === 0) {
+  console.log('No input mentioned ‼')
+  return
 }
-
 
 function containsText (word) {
   return word.includes('.txt')
 }
 
-let textfile = inputArr.filter(containsText)
+let textfiles = inputArr.filter(containsText)
 
-let arg = fs.readFileSync(textfile[0], 'utf-8')
+if (inputArr.includes('-n') && inputArr.includes('-b')) {
+  console.log('n and b commands cannot co-exist')
+  return
+}
 
-result = sFunctionality(arg)
-result = nFunctionality(result)
+textfiles.forEach(textfile => {
+  const fileExists = fs.existsSync(textfile)
 
-console.log(result)
+  if (!fileExists) {
+    console.log(textfile + ' File does not exist ⚠\n')
+    return
+  }
+
+  let result = fs.readFileSync(textfile, 'utf-8')
+
+  if (inputArr.includes('-n')) {
+    result = nCommand(result)
+  }
+
+  if (inputArr.includes('-b')) {
+    result = bCommand(result)
+  }
+
+  if (inputArr.includes('-s')) {
+    result = sCommand(result)
+  }
+  console.log('\n[ ' + path.basename(textfile) + ' ]\n' + result)
+})

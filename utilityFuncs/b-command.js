@@ -1,4 +1,4 @@
-function bFunctionality (file) {
+module.exports = function bFunctionality (file) {
     let arr = file.split(/\r?\n/)
   
     let c = 1

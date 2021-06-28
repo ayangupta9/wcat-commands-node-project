@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "wcat" : "main.js"
+  },
   "keywords": [
     "wcat",
     "cat",
@@ -19,5 +22,13 @@
     "terminal"
   ],
   "author": "Ayan Gupta",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayangupta9/wcat-commands-node-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ayangupta9/wcat-commands-node-project/issues"
+  },
+  "homepage": "https://github.com/ayangupta9/wcat-commands-node-project#readme"
 }
